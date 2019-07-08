@@ -2,7 +2,7 @@
 $ip = getHostByName(getHostName());
 ?>
 <html>
-<p><img src="http://<?php echo $ip; ?>:8080?action=stream"/>
+<p><img src="http://<?php echo $_SERVER['SERVER_ADDR']; ?>:8080?action=stream"/>
 <p><h1>
 <?php
 shell_exec("sudo /usr/bin/python /var/www/html/relay.py ".$_POST["control"]);

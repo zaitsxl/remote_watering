@@ -20,4 +20,8 @@ if sys.argv[1] == "on":
 if sys.argv[1] == "off":
 	GPIO.output(pin,GPIO.LOW)
 
+if sys.argv[1] == "status":
+        status = GPIO.input(pin)
+        print(status)
+
 #hum, temp = Adafruit_DHT.read_retry(11, 4)

@@ -17,10 +17,11 @@
 <p align="center"><font size="30">Power:
 <?php
      $power_status = shell_exec("sudo /sbin/apcaccess | grep STATUS | awk '{ print $3 }'");
+     $bat_charge = shell_exec("sudo /sbin/apcaccess | grep BCHARGE | awk '{ print $3 }'");
      if (strpos($power_status, "ONLINE") !== false): ?>
      <font color="green">LINE
      <?php elseif (strpos($power_status, "ONBATT") !== false): ?>
-     <font color="red">BATTERY
+     <font color="red">BATTERY <?php echo "$bat_charge %"; ?>
      <?php else: ?>
      <font color="red">ERROR
 <?php endif;
